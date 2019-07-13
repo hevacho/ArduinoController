@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+    <script  src="https://code.jquery.com/jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>  
+    <script type = "text/javascript">
+        
+
+        function on(numero){
+            $.get( `http://localhost:3000/on?number=${numero}`, function( data ) {
+                });
+            }
+
+        function off(numero){
+            $.get( `http://localhost:3000/off?number=${numero}`, function( data ) {
+                });
+            }
+        
+        function getData(){
+            $.get( "http://localhost:3000/getData?number=1", function( data ) {
+                });
+            }
+        
+        let socket = new WebSocket("ws:localhost:8081");
+
+        socket.onmessage = function(event) {
+            alert(`[message] Data received: ${event.data} <- server`);
+        };
+
+        socket.onerror = function(error) {
+            alert(`[error] ${error.message}`);
+        };
+
+        $( document ).ready(function() {
+            socket.onopen;            
+        });
+    </script>
+		
+   </head>
+   
+   <body>
+     HOLA MUNDO 
+     <button type="Encender1" onClick=on(1)>Encender1!</button>
+     <button type="Apagar1" onClick=off(1)>Apagar1!</button>
+     <button type="Encender1" onClick=on(2)>Encender2!</button>
+     <button type="Apagar1" onClick=off(2)>Apagar2!</button>
+     <button type="Apagar1" onClick=getData(1)>getData!</button>
+   </body>
+
+</html>
