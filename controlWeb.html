@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
    <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
     <script  src="https://code.jquery.com/jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>  
     <script type = "text/javascript">
         
@@ -9,6 +11,7 @@
             $.get( `http://localhost:3000/on?number=${numero}`, function( data ) {
                 });
             }
+
 
         function off(numero){
             $.get( `http://localhost:3000/off?number=${numero}`, function( data ) {
@@ -38,12 +41,93 @@
    </head>
    
    <body>
-     HOLA MUNDO 
-     <button type="Encender1" onClick=on(1)>Encender1!</button>
-     <button type="Apagar1" onClick=off(1)>Apagar1!</button>
-     <button type="Encender1" onClick=on(2)>Encender2!</button>
-     <button type="Apagar1" onClick=off(2)>Apagar2!</button>
-     <button type="Apagar1" onClick=getData(1)>getData!</button>
+      <div id="demotext">
+          <br>
+          <br>
+          <label>Controles para el salon</label>
+          <br>
+          <br>
+          <br>
+      </div>
+
+      <div class="clear">
+          <br/>
+      </div>
+
+      <div class="div_button">
+        <button onClick=on(1) >
+              <img src="./icons/light_on.png">
+               <br>
+         <label class="label_icon label_icon_on">On 1</label>
+     </button>
+
+     <button onClick=off(1)>
+         <img src="./icons/light_off.png">
+         <br>
+         <label class="label_icon label_icon_off">Off 1</label>
+     </button>
+      </div>
+
+      <div class="clear">
+          <br/>
+      </div>
+
+      <div class="div_button">
+          <button onClick=on(2) disabled>
+              <img src="./icons/light_on.png">
+              <br>
+              <label class="label_icon label_icon_on label">On 2</label>
+          </button>
+
+          <button onClick=off(2) disabled>
+              <img src="./icons/light_off.png">
+              <br>
+              <label class="label_icon label_icon_off">Off 2</label>
+          </button>
+      </div>
+
+      <div class="clear">
+          <br/>
+      </div>
+
+      <div class="div_button">
+          <button onClick=on(3) >
+              <img src="./icons/light_on.png">
+              <br>
+              <label class="label_icon label_icon_on">On 3</label>
+          </button>
+
+          <button onClick=off(3)>
+              <img src="./icons/light_off.png">
+              <br>
+              <label class="label_icon label_icon_off">Off 3</label>
+          </button>
+      </div>
+
+      <div class="clear">
+          <br/>
+      </div>
+
+      <div class="div_button">
+          <button onClick=on(4) >
+              <img src="./icons/light_on.png">
+              <br>
+              <label class="label_icon label_icon_on">On 4</label>
+          </button>
+
+          <button onClick=off(4)>
+              <img src="./icons/light_off.png">
+              <br>
+              <label class="label_icon label_icon_off">Off 4</label>
+          </button>
+      </div>
+
+      <div class="clear">
+          <br/>
+      </div>
+
+     <button type="Apagar1" onClick=getData(1)>Refrescar!</button>
+      </div>
    </body>
 
 </html>
