@@ -34,8 +34,10 @@ void loop() {
         getData();
       }else if(command.equals("on")){
         switchOn(relayNumber);
+        getData();
       }else if(command.equals("off")){
         switchOff(relayNumber);
+        getData();
       }
       
     }
