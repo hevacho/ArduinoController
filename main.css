@@ -1,4 +1,6 @@
-
+button {
+    background: none;
+}
 
 
 .label_icon{
@@ -39,9 +41,9 @@
     font-style: normal;
     font-variant: normal;
     text-transform: none;
-    size: 100px 100px;
+    size: 200px 100px;
     padding-left: 20px;
-    float: left;
+
 }
 
 .clear {
