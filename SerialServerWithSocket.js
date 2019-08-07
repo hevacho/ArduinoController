@@ -74,6 +74,9 @@ app.get('/:action', function(req, res) {
 
     var action = req.params.action;
     var number = req.query.number;
+    var red = req.query.red;
+    var green = req.query.green;
+    var blue = req.query.blue;
 
     var message;
 
@@ -96,6 +99,15 @@ app.get('/:action', function(req, res) {
         var obj = { command: "getData" };
         console.log(`Reading Data.....`);
         message = JSON.stringify(obj);
+    }
+
+    if (action == "color") {
+        var obj = { command: "color" };
+        obj.red = red;
+        obj.green = green;
+        obj.blue = blue;
+        message = JSON.stringify(obj);
+        console.log(`Enviando color ${message}`);
     }
 
     if (message) {

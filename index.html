@@ -39,16 +39,39 @@
                 $('#'+selecttorOff).show();
             }
         }
+
+        function changeColorHexLeds(colorHex){
+            var hex = colorHex.replace(/[^0-9A-F]/gi, '');
+                var bigint = parseInt(hex, 16);
+                var red = (bigint >> 16) & 255;
+                var green = (bigint >> 8) & 255;
+                var blue = bigint & 255;
+                
+             $.get( `http://192.168.1.199:3000/color?red=${red}&green=${green}&blue=${blue}`, function( data ) {
+                });
+
+           alert(`hex ${hex} rojo ${r} green ${g} blue ${b}`);
+        }
         
+        function changeStatusLed(red, green, blue){
+            var rgb = blue | (green << 8) | (red << 16);
+            var hex = '#' + (0x1000000 + rgb).toString(16).slice(1)
+             $('#bgcolor').val(hex);
+           
+        }
+
         let socket = new WebSocket("ws:192.168.1.199:8081");
 
         socket.onmessage = function(event) {
-           // alert(`[message] Data received: ${event.data} <- server`);
+            //alert(`[message] Data received: ${event.data} <- server`);
+
             let status = JSON.parse(event.data);
             changeValue(1, status.relay1);
             changeValue(2, status.relay2);
             changeValue(3, status.relay3);
             changeValue(4, status.relay4);
+
+            changeStatusLed(status.red, status.green, status.blue);
 
         };
 
@@ -59,6 +82,12 @@
         $( document ).ready(function() {
             socket.onopen;
             $('#refresh').hide();
+           
+            $(document).on("change" , "#bgcolor" , function(){
+              var hex = $(this).val();
+              changeColorHexLeds(hex) ;
+            
+        });
 
         });
     </script>
@@ -139,6 +168,11 @@
       <div class="clear">
           <br/>
       </div>
+
+    <div>
+        <label class="label"> Colores del led </label>
+        <input type="color" id="bgcolor" name="favcolor" value="#ffffff" onChange="test()" >
+    </div>
 
      <button id="refresh" type="Apagar1" onClick=getData(1)>Refrescar!</button>
       </div>

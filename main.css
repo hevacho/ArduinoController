@@ -2,8 +2,7 @@ button {
     background: none;
 }
 
-
-.label_icon{
+.label_icon {
     font-family: "Courier New", Courier, monospace;
     font-size: 19px;
     letter-spacing: 0px;
@@ -16,16 +15,16 @@ button {
     text-transform: none;
 }
 
-.label_icon_on{
-    color:green;
+.label_icon_on {
+    color: green;
 }
 
-.label_icon_off{
-    color:red;
+.label_icon_off {
+    color: red;
 }
 
 .label_icon_disabled {
-    color:gray !important;
+    color: gray !important;
 }
 
 #demotext {
@@ -43,15 +42,19 @@ button {
     text-transform: none;
     size: 200px 100px;
     padding-left: 20px;
-
 }
 
 .clear {
     clear: left;
 }
 
-.div_button{
+.div_button {
     padding-left: 20px;
     float: left;
 }
 
+.label {
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
